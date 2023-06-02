@@ -1,0 +1,24 @@
+version: '3'
+services:
+  community-app:
+    container_name: community-app
+    build: .
+    ports:
+      - "81:80"
+  proxy:
+    image: linuxserver/letsencrypt
+    container_name: proxy
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./config/letsencrypt:/config
+    environment:
+      - EMAIL=you+letsencrypt@yourapp.com
+      - URL=185.249.227.253
+      # - SUBDOMAINS=www
+      - VALIDATION=http
+      - TZ=Europe/Stockholm
+      - PUID=1000
+      - PGID=1000
+      
