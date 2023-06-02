@@ -21,4 +21,4 @@ services:
       - TZ=Europe/Stockholm
       - PUID=1000
       - PGID=1000
-      
+
