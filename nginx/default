@@ -32,7 +32,7 @@ server {
 
 	location /cba/ {
 #		try_files $uri $uri/ /index.html /index.php?$args =404;
-                proxy_pass http://cfinance-ui/;
+                proxy_pass http://community-app/;
 				proxy_http_version 1.1;
 				proxy_set_header Upgrade $http_upgrade;
 				proxy_set_header Connection 'upgrade';
@@ -45,7 +45,7 @@ server {
 	}
 
      location /api/cba/ {
-      proxy_pass https://cfinance-backend:8443/fineract-provider/api/;
+      proxy_pass https://fineract:8443/fineract-provider/api/;
       proxy_http_version 1.1;
       proxy_set_header Upgrade $http_upgrade;
       proxy_set_header Connection 'upgrade';
